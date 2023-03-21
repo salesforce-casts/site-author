@@ -81,89 +81,76 @@
         <template>
             <div class="space-y-0 divide-y divide-gray-800 overflow-scroll h-full pb-24">
                 <div class="flex flex-col items-center justify-center text-xs pt-3">
-                    <p><span class="bg-blue-600 text-white px-1.5 py-0.5 rounded font-medium mr-1" x-text="app.getSelectedElementTag()"></span> element selected</p>
+                    <p><span class="bg-blue-600 text-white px-1.5 py-0.5 rounded font-medium mr-1"></span> element selected</p>
                     <div class="mt-3 h-8 h-full w-full flex divide-x text-xs divide-gray-750 items-center justify-center border-t border-gray-750">
-                        <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span x-text="app.pageWidth"></span>px</span>
-                        <span class="font-bold  h-full w-1/2 flex items-center justify-center" x-text="app.pageSize"></span>
+                        <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span></span>px</span>
+                        <span class="font-bold  h-full w-1/2 flex items-center justify-center"></span>
                     </div>
                 </div>
-                <template x-for="panel in app.getSelectedElementPanels()" :key="panel.id">
+                <template>
                     <div class="w-full panel relative">
-                        <template x-if="!panel.collapsible">
-                            <div x-data="{ visible: true }" x-show="visible" :id="panel.id + '-panel'" @hide="visible=false" @showme="visible=true" :class="{ 'border-t border-gray-750': !panel.collapsible }" class="p-3 text-xs bg-gray-800" x-cloak="">
+                        <template>
+                            <div>
                                 <div class="relative w-full">
-                                    <div x-html="panel.html"></div>
+                                    <div></div>
                                 </div>
                             </div>
                         </template>
-                        <template x-if="panel.collapsible">
-                            <div x-data="{ panelOpen: $persist(panel.openByDefault).as('tails-panel-' + panel.id), visible: true }" x-init="$watch('panelOpen', value => panel.toggled(value));" x-show="visible" :id="panel.id + '-panel'" @hide="visible=false" @showme="visible=true" class="w-full relative rounded-sm" x-cloak="">
-                                <div x-on:click="panelOpen=!panelOpen" class="h-auto text-xs font-semibold  px-2 border-b border-gray-800 py-2 flex cursor-pointer justify-start group items-center bg-gray-900">
-                                    <svg :class="{ 'rotate-90': panelOpen }" class="fill-current w-4 h-4 -ml-0.5 mr-0.5 text-gray-600 group-hover:text-gray-500 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <template>
+                            <div>
+                                <div class="h-auto text-xs font-semibold  px-2 border-b border-gray-800 py-2 flex cursor-pointer justify-start group items-center bg-gray-900">
+                                    <svg class="fill-current w-4 h-4 -ml-0.5 mr-0.5 text-gray-600 group-hover:text-gray-500 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                     </svg>
-                                    <h5 class="text-gray-400 group-hover:text-gray-300" x-text="panel.title"></h5>
+                                    <h5 class="text-gray-400 group-hover:text-gray-300"></h5>
                                 </div>
-                                <div x-show="panelOpen" class="p-3 text-xs bg-gray-800" x-collapse.duration.100ms="" x-cloak="">
-                                    <div x-html="panel.html"></div>
+                                <div class="p-3 text-xs bg-gray-800">
+                                    <div></div>
                                 </div>
                             </div>
                         </template>
                     </div>
                 </template>
-                <template x-for="section in tailwind.utilities">
-                    <div x-init="
-                        setTimeout(function(){
-                        tippy('.tippy-left', { theme: 'dark', placement: 'left' });
-                        }, 10)" x-data="{ 
-                        panelOpen: $persist(false).as('tails-panel-utility-' + section.title), 
-                        showMore:false, 
-                        visible: true 
-                        }" x-show="visible" @hide="visible=false" @showme="visible=true" class="w-full relative rounded-sm" x-cloak="">
-                        <div x-on:click="panelOpen=!panelOpen" class="h-auto text-xs font-semibold  px-2 border-b border-gray-800 py-2 flex cursor-pointer justify-start group items-center bg-gray-900">
-                            <svg :class="{ 'rotate-90': panelOpen }" class="fill-current w-4 h-4 -ml-0.5 mr-0.5 text-gray-600 group-hover:text-gray-500 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <template>
+                    <div >
+                        <div class="h-auto text-xs font-semibold  px-2 border-b border-gray-800 py-2 flex cursor-pointer justify-start group items-center bg-gray-900">
+                            <svg class="fill-current w-4 h-4 -ml-0.5 mr-0.5 text-gray-600 group-hover:text-gray-500 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                             </svg>
-                            <h5 class="text-gray-400 group-hover:text-gray-300" x-text="section.title">
+                            <h5 class="text-gray-400 group-hover:text-gray-300">
                             </h5>
                         </div>
-                        <div x-show="panelOpen" class="p-0 text-xs bg-gray-800" x-collapse.duration.100ms="" x-cloak="">
-                            <div x-show="section.visible.length != 0" class="relative w-full py-1">
-                                <template x-for="(sectionData, index) in section.properties">
-                                    <div x-data="{ property: section.getProperty(index) }" class="flex items-center">
-                                        <template x-if="section.visible.includes( property.slug )">
+                        <div class="p-0 text-xs bg-gray-800">
+                            <div class="relative w-full py-1">
+                                <template>
+                                    <div class="flex items-center">
+                                        <template >
                                             <div class="relative flex items-center w-full px-0.5 space-x-0.5 space-y-0.5">
-                                                <p @click="app.tailwind_iframe=true;app.tailwind_iframe_src=property.docs" :data-tippy-content="'View ' + property.title + ' Docs'" class="tippy-left text-[0.55rem] hover:bg-gray-700 text-gray-300 hover:underline cursor-pointer hover:text-gray-300 font-medium w-28 flex-shrink-0 pl-2.5 pr-1.5 h-6 rounded flex items-center flex-shrink-0">
-                                                    <span x-text="property.title" class="truncate"></span>
+                                                <p>
+                                                    <span class="truncate"></span>
                                                 </p>
-                                                <div x-data="{ dropdown: false, items: [] }" x-init="
-                                                    $watch('dropdown', function(value){
-                                                    if(!$data.items.length){
-                                                    $data.items = property.data;
-                                                    }
-                                                    tailwind.utilityClassDropdown(value, property);
-                                                    })" "="" class="flex flex-col w-full relative text-[0.6rem]">
-                                                    <div x-on:click="dropdown=!dropdown;" "="" :class="{ 'bg-gray-800 hover:bg-gray-750 rounded': (!dropdown &amp;&amp; !tailwind.isPropertySet(property.computed)), 'bg-gray-750 rounded-t': dropdown, 'bg-gray-700 rounded': (tailwind.isPropertySet(property.computed) &amp;&amp; !dropdown) }" class="py-0 h-6 cursor-pointer w-full items-center justify-between px-2 flex text-gray-300">
-                                                        <span x-text="tailwind.getComputedPropertyClass(property.computed)"></span>
+                                                <div class="flex flex-col w-full relative text-[0.6rem]">
+                                                    <div class="py-0 h-6 cursor-pointer w-full items-center justify-between px-2 flex text-gray-300">
+                                                        <span></span>
                                                         <svg class="fill-current w-2 h-2 text-gray-600" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10.4 17.8 20.4.877H.4l10 16.923Z"></path>
                                                         </svg>
                                                     </div>
-                                                    <div x-show="dropdown" x-on:click.outside="dropdown=false;" class="flex absolute w-full top-0 mt-6 bg-gray-750 z-50 rounded-b max-h-[7.8rem] border border-gray-700 border-t-0 overflow-scroll left-0 flex-col">
-                                                        <template x-for="item in items">
-                                                            <div :class="{ 'bg-gray-700' : (tailwind.getComputedPropertyClass(property.computed) == item.class), 'hover:bg-gray-700': (tailwind.getComputedPropertyClass(property.computed) != item.class) }" @mouseover="tailwind.previewClass(item.class, property)" @click="tailwind.selectClass(item.class, property); dropdown=false;" class="relative px-2 h-7 flex items-center border-b border-gray-750 hover:text-white text-gray-300 cursor-pointer py-1 justify-start">
-                                                                <span x-text="item.class"></span>
+                                                    <div class="flex absolute w-full top-0 mt-6 bg-gray-750 z-50 rounded-b max-h-[7.8rem] border border-gray-700 border-t-0 overflow-scroll left-0 flex-col">
+                                                        <template>
+                                                            <div class="relative px-2 h-7 flex items-center border-b border-gray-750 hover:text-white text-gray-300 cursor-pointer py-1 justify-start">
+                                                                <span></span>
                                                             </div>
                                                         </template>
                                                     </div>
                                                 </div>
                                                 <div class="relative">
-                                                    <div x-show="section.visible.includes(property.slug)" @click="section.visible.splice(section.visible.indexOf(property.slug), 1)" class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-red-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
+                                                    <div class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-red-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
                                                         <svg class="w-3 h-3 fill-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="m60.656 80.213 1.28-17.826 26.562-26.565 8.405-.604c3.367-.9 4.104-3.656 1.641-6.121L70.908 1.459C68.44-1.01 65.689-.27 64.787 3.098l-.603 8.41-26.561 26.557L19.79 39.35c-4.285 1.145-5.224 4.65-2.085 7.79l14.793 14.796L5.693 88.822 0 100.004l11.186-5.693 26.885-26.804c1.066 1.062 14.793 14.795 14.793 14.795 3.138 3.139 6.643 2.195 7.792-2.09v.001Z"></path>
                                                         </svg>
                                                     </div>
-                                                    <div x-show="!(section.visible.includes(property.slug))" @click="section.visible.push(property.slug)" class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-green-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
+                                                    <div class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-green-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
                                                         <svg class="w-3 h-3 stroke-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M5.71391 94.2909L7.74174 90.3081L34.2694 63.7009L36.0319 61.9332L34.2668 60.168L26.4713 52.3715L21.6355 47.5349L20.0656 45.9648L19.628 45.5272L19.513 45.4122L19.4836 45.3827L19.4761 45.3752L19.4742 45.3734L19.4739 45.373C18.282 44.1806 18.312 43.395 18.3794 43.1434C18.4435 42.904 18.7793 42.2606 20.225 41.8251L37.8022 40.5586L38.7314 40.4916L39.3902 39.8329L65.9517 13.275L66.611 12.6158L66.6776 11.6858L67.2614 3.54035C67.4023 3.09852 67.5674 2.82994 67.6916 2.68207C67.8218 2.52696 67.9012 2.50684 67.9079 2.50513L67.9082 2.50504L67.9085 2.50495C67.9151 2.50308 67.9935 2.48082 68.1834 2.54982C68.391 2.62529 68.725 2.81125 69.1398 3.22618L69.14 3.22638L96.7756 30.8638C97.1889 31.2775 97.3745 31.6113 97.45 31.8194C97.5192 32.0101 97.497 32.0896 97.4949 32.0972L97.4948 32.0976L97.4947 32.098C97.4928 32.1055 97.4725 32.1848 97.3181 32.3144C97.1709 32.4381 96.9029 32.603 96.4613 32.7433L88.3188 33.3286L87.3892 33.3954L86.7302 34.0545L60.1687 60.6196L59.5098 61.2786L59.443 62.2081L58.1807 79.7782C57.7434 81.2242 57.099 81.5621 56.8579 81.6268C56.6064 81.6943 55.8225 81.725 54.6324 80.5344L52.8642 82.3018C54.6324 80.5344 54.6323 80.5343 54.6322 80.5342L54.6317 80.5337L54.6299 80.5319L54.6224 80.5244L54.5929 80.4949L54.4779 80.3799L54.0404 79.9422L52.4707 78.3719L47.6353 73.535C44.072 69.9708 40.3706 66.2691 39.8352 65.7358L38.0701 63.9776L36.3058 65.7366L9.70065 92.2623L5.71391 94.2909Z" stroke-width="5"></path>
                                                         </svg>
@@ -174,7 +161,7 @@
                                     </div>
                                 </template>
                             </div>
-                            <div x-show="section.visible.length == 0" class="relative w-full py-2">
+                            <div class="relative w-full py-2">
                                 <p class="px-3 text-[0.6rem] text-gray-500 text-left flex items-center">
                                     <svg class="w-2.5 h-2.5 mr-1.5 stroke-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.71391 94.2909L7.74174 90.3081L34.2694 63.7009L36.0319 61.9332L34.2668 60.168L26.4713 52.3715L21.6355 47.5349L20.0656 45.9648L19.628 45.5272L19.513 45.4122L19.4836 45.3827L19.4761 45.3752L19.4742 45.3734L19.4739 45.373C18.282 44.1806 18.312 43.395 18.3794 43.1434C18.4435 42.904 18.7793 42.2606 20.225 41.8251L37.8022 40.5586L38.7314 40.4916L39.3902 39.8329L65.9517 13.275L66.611 12.6158L66.6776 11.6858L67.2614 3.54035C67.4023 3.09852 67.5674 2.82994 67.6916 2.68207C67.8218 2.52696 67.9012 2.50684 67.9079 2.50513L67.9082 2.50504L67.9085 2.50495C67.9151 2.50308 67.9935 2.48082 68.1834 2.54982C68.391 2.62529 68.725 2.81125 69.1398 3.22618L69.14 3.22638L96.7756 30.8638C97.1889 31.2775 97.3745 31.6113 97.45 31.8194C97.5192 32.0101 97.497 32.0896 97.4949 32.0972L97.4948 32.0976L97.4947 32.098C97.4928 32.1055 97.4725 32.1848 97.3181 32.3144C97.1709 32.4381 96.9029 32.603 96.4613 32.7433L88.3188 33.3286L87.3892 33.3954L86.7302 34.0545L60.1687 60.6196L59.5098 61.2786L59.443 62.2081L58.1807 79.7782C57.7434 81.2242 57.099 81.5621 56.8579 81.6268C56.6064 81.6943 55.8225 81.725 54.6324 80.5344L52.8642 82.3018C54.6324 80.5344 54.6323 80.5343 54.6322 80.5342L54.6317 80.5337L54.6299 80.5319L54.6224 80.5244L54.5929 80.4949L54.4779 80.3799L54.0404 79.9422L52.4707 78.3719L47.6353 73.535C44.072 69.9708 40.3706 66.2691 39.8352 65.7358L38.0701 63.9776L36.3058 65.7366L9.70065 92.2623L5.71391 94.2909Z" stroke-width="5"></path>
@@ -182,49 +169,43 @@
                                     <span>No properties are pinned by default</span>
                                 </p>
                             </div>
-                            <div x-on:click="showMore=!showMore" :class="{ 'bg-gray-750 text-gray-400': showMore, 'hover:bg-gray-750 hover:text-gray-400 text-gray-500': !showMore }" class="w-full h-7 border-t border-b cursor-pointer border-gray-750 flex items-center text-[0.65rem] px-3">
-                                <svg :class="{ 'rotate-90': showMore }" class="fill-current w-3 h-3 -ml-0.5 mr-0.5 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <div class="w-full h-7 border-t border-b cursor-pointer border-gray-750 flex items-center text-[0.65rem] px-3">
+                                <svg class="fill-current w-3 h-3 -ml-0.5 mr-0.5 transform" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                                 </svg>
-                                <span>View All <span x-text="section.title"></span> Properties</span>
+                                <span>View All <span></span> Properties</span>
                             </div>
-                            <div x-show="showMore &amp;&amp; (section.properties.length != section.visible.length)" class="relative w-full py-1" x-cloak="">
-                                <template x-for="(sectionData, index) in section.properties">
-                                    <div x-data="{ property: section.getProperty(index) }" class="flex items-center">
-                                        <template x-if="!section.visible.includes(property.slug)">
+                            <div class="relative w-full py-1" x-cloak="">
+                                <template>
+                                    <div class="flex items-center">
+                                        <template>
                                             <div class="w-full relative">
                                                 <div class="relative flex items-center w-full px-0.5 space-x-0.5 space-y-0.5">
-                                                    <p @click="app.tailwind_iframe=true;app.tailwind_iframe_src=property.docs" :data-tippy-content="'View ' + property.title + ' Docs'" class="tippy-left text-[0.55rem] hover:bg-gray-700 text-gray-300 hover:underline cursor-pointer hover:text-gray-300 font-medium w-28 flex-shrink-0 pl-2.5 pr-1.5 h-6 rounded flex items-center flex-shrink-0">
-                                                        <span x-text="property.title" class="truncate"></span>
+                                                    <p class="tippy-left text-[0.55rem] hover:bg-gray-700 text-gray-300 hover:underline cursor-pointer hover:text-gray-300 font-medium w-28 flex-shrink-0 pl-2.5 pr-1.5 h-6 rounded flex items-center flex-shrink-0">
+                                                        <span class="truncate"></span>
                                                     </p>
-                                                    <div x-data="{ dropdown: false, items: [] }" x-init="
-                                                        $watch('dropdown', function(value){
-                                                        if(!$data.items.length){
-                                                        $data.items = property.data;
-                                                        }
-                                                        tailwind.utilityClassDropdown(value, property);
-                                                        })" "="" class="flex flex-col w-full relative text-[0.6rem]">
-                                                        <div x-on:click="dropdown=!dropdown;" "="" :class="{ 'bg-gray-800 hover:bg-gray-750 rounded': (!dropdown &amp;&amp; !tailwind.isPropertySet(property.computed)), 'bg-gray-750 rounded-t': dropdown, 'bg-gray-700 rounded': (tailwind.isPropertySet(property.computed) &amp;&amp; !dropdown) }" class="py-0 h-6 cursor-pointer w-full items-center justify-between px-2 flex text-gray-300">
-                                                            <span x-text="tailwind.getComputedPropertyClass(property.computed)"></span>
+                                                    <div class="flex flex-col w-full relative text-[0.6rem]">
+                                                        <div class="py-0 h-6 cursor-pointer w-full items-center justify-between px-2 flex text-gray-300">
+                                                            <span></span>
                                                             <svg class="fill-current w-2 h-2 text-gray-600" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M10.4 17.8 20.4.877H.4l10 16.923Z"></path>
                                                             </svg>
                                                         </div>
-                                                        <div x-show="dropdown" x-on:click.outside="dropdown=false;" class="flex absolute w-full top-0 mt-6 bg-gray-750 z-50 rounded-b max-h-[7.8rem] border border-gray-700 border-t-0 overflow-scroll left-0 flex-col">
-                                                            <template x-for="item in items">
-                                                                <div :class="{ 'bg-gray-700' : (tailwind.getComputedPropertyClass(property.computed) == item.class), 'hover:bg-gray-700': (tailwind.getComputedPropertyClass(property.computed) != item.class) }" @mouseover="tailwind.previewClass(item.class, property)" @click="tailwind.selectClass(item.class, property); dropdown=false;" class="relative px-2 h-7 flex items-center border-b border-gray-750 hover:text-white text-gray-300 cursor-pointer py-1 justify-start">
-                                                                    <span x-text="item.class"></span>
+                                                        <div class="flex absolute w-full top-0 mt-6 bg-gray-750 z-50 rounded-b max-h-[7.8rem] border border-gray-700 border-t-0 overflow-scroll left-0 flex-col">
+                                                            <template >
+                                                                <div class="relative px-2 h-7 flex items-center border-b border-gray-750 hover:text-white text-gray-300 cursor-pointer py-1 justify-start">
+                                                                    <span></span>
                                                                 </div>
                                                             </template>
                                                         </div>
                                                     </div>
                                                     <div class="relative">
-                                                        <div x-show="section.visible.includes(property.slug)" @click="section.visible.splice(section.visible.indexOf(property.slug), 1)" class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-red-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
+                                                        <div class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-red-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
                                                             <svg class="w-3 h-3 fill-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="m60.656 80.213 1.28-17.826 26.562-26.565 8.405-.604c3.367-.9 4.104-3.656 1.641-6.121L70.908 1.459C68.44-1.01 65.689-.27 64.787 3.098l-.603 8.41-26.561 26.557L19.79 39.35c-4.285 1.145-5.224 4.65-2.085 7.79l14.793 14.796L5.693 88.822 0 100.004l11.186-5.693 26.885-26.804c1.066 1.062 14.793 14.795 14.793 14.795 3.138 3.139 6.643 2.195 7.792-2.09v.001Z"></path>
                                                             </svg>
                                                         </div>
-                                                        <div x-show="!(section.visible.includes(property.slug))" @click="section.visible.push(property.slug)" class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-green-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
+                                                        <div class="h-6 w-6 rounded flex items-center justify-center bg-gray-800 rounded-r hover:bg-gray-750 cursor-pointer text-gray-400 hover:text-green-400 border-gray-700 hover:bg-gray-750 flex-shrink-0">
                                                             <svg class="w-3 h-3 stroke-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M5.71391 94.2909L7.74174 90.3081L34.2694 63.7009L36.0319 61.9332L34.2668 60.168L26.4713 52.3715L21.6355 47.5349L20.0656 45.9648L19.628 45.5272L19.513 45.4122L19.4836 45.3827L19.4761 45.3752L19.4742 45.3734L19.4739 45.373C18.282 44.1806 18.312 43.395 18.3794 43.1434C18.4435 42.904 18.7793 42.2606 20.225 41.8251L37.8022 40.5586L38.7314 40.4916L39.3902 39.8329L65.9517 13.275L66.611 12.6158L66.6776 11.6858L67.2614 3.54035C67.4023 3.09852 67.5674 2.82994 67.6916 2.68207C67.8218 2.52696 67.9012 2.50684 67.9079 2.50513L67.9082 2.50504L67.9085 2.50495C67.9151 2.50308 67.9935 2.48082 68.1834 2.54982C68.391 2.62529 68.725 2.81125 69.1398 3.22618L69.14 3.22638L96.7756 30.8638C97.1889 31.2775 97.3745 31.6113 97.45 31.8194C97.5192 32.0101 97.497 32.0896 97.4949 32.0972L97.4948 32.0976L97.4947 32.098C97.4928 32.1055 97.4725 32.1848 97.3181 32.3144C97.1709 32.4381 96.9029 32.603 96.4613 32.7433L88.3188 33.3286L87.3892 33.3954L86.7302 34.0545L60.1687 60.6196L59.5098 61.2786L59.443 62.2081L58.1807 79.7782C57.7434 81.2242 57.099 81.5621 56.8579 81.6268C56.6064 81.6943 55.8225 81.725 54.6324 80.5344L52.8642 82.3018C54.6324 80.5344 54.6323 80.5343 54.6322 80.5342L54.6317 80.5337L54.6299 80.5319L54.6224 80.5244L54.5929 80.4949L54.4779 80.3799L54.0404 79.9422L52.4707 78.3719L47.6353 73.535C44.072 69.9708 40.3706 66.2691 39.8352 65.7358L38.0701 63.9776L36.3058 65.7366L9.70065 92.2623L5.71391 94.2909Z" stroke-width="5"></path>
                                                             </svg>
@@ -236,7 +217,7 @@
                                     </div>
                                 </template>
                             </div>
-                            <div x-show="showMore &amp;&amp; (section.properties.length == section.visible.length)" class="relative w-full py-2" x-cloak="">
+                            <div class="relative w-full py-2">
                                 <p class="px-3 text-[0.6rem] text-gray-500 text-left flex items-center">
                                     <svg class="w-2.5 mr-1.5 h-2.5 fill-current" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m60.656 80.213 1.28-17.826 26.562-26.565 8.405-.604c3.367-.9 4.104-3.656 1.641-6.121L70.908 1.459C68.44-1.01 65.689-.27 64.787 3.098l-.603 8.41-26.561 26.557L19.79 39.35c-4.285 1.145-5.224 4.65-2.085 7.79l14.793 14.796L5.693 88.822 0 100.004l11.186-5.693 26.885-26.804c1.066 1.062 14.793 14.795 14.793 14.795 3.138 3.139 6.643 2.195 7.792-2.09v.001Z"></path>
@@ -249,7 +230,7 @@
                 </template>
             </div>
         </template>
-        <template x-if="!app.data.selectedElement &amp;&amp; app.showRightEmptyState">
+        <template>
             <div class="flex flex-col border-b border-gray-750">
                 <div class="p-4 text-center">
                     <div class="bg-gray-900 text-gray-400 border-0 border-gray-700 w-full flex flex-col items-center rounded-md justify-center py-6 px-5">
@@ -260,8 +241,8 @@
                     </div>
                 </div>
                 <div class="mt-3 h-8 h-full w-full flex divide-x text-xs divide-gray-750 items-center justify-center border-t border-gray-750">
-                    <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span x-text="app.pageWidth"></span>px</span>
-                    <span class="font-bold  h-full w-1/2 flex items-center justify-center" x-text="app.pageSize"></span>
+                    <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span></span>px</span>
+                    <span class="font-bold  h-full w-1/2 flex items-center justify-center"></span>
                 </div>
             </div>
         </template>
@@ -275,8 +256,8 @@
                 </div>
             </div>
             <div class="mt-3 h-8 h-full w-full flex divide-x text-xs divide-gray-750 items-center justify-center border-t border-gray-750">
-                <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span x-text="app.pageWidth">1384</span>px</span>
-                <span class="font-bold  h-full w-1/2 flex items-center justify-center" x-text="app.pageSize">xl</span>
+                <span class="pr-3 h-full flex w-1/2 items-center justify-center"><span>1384</span>px</span>
+                <span class="font-bold  h-full w-1/2 flex items-center justify-center">xl</span>
             </div>
         </div>
     </div>
