@@ -1,0 +1,1 @@
+<div class="border-gray-750 fixed top-0 left-0 z-30 h-full w-10 border-r bg-gray-900"></div>
