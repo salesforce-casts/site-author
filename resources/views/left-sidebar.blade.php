@@ -6,7 +6,7 @@
    <div class="text-white">there</div>
    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 
-      <div class="relative z-50 lg:hidden backdrop" role="dialog" aria-modal="true">
+      <div class="relative z-50 hidden backdrop" role="dialog" aria-modal="true">
          <!--
             Off-canvas menu backdrop, show/hide based on off-canvas menu state.
             
@@ -18,6 +18,7 @@
               To: "opacity-0"
             -->
          <div class="fixed inset-0 bg-gray-900/80 transition-opacity ease-linear duration-300 opacity-0 newbackdrop"></div>
+
          <div class="fixed inset-0 flex">
             <!--
                Off-canvas menu, show/hide based on off-canvas menu state.
@@ -143,15 +144,15 @@
 
 <script>
    function toggleOffCanvas(event){
-      document.querySelector('.backdrop').classList.remove("lg:hidden");
+      document.querySelector('.backdrop').classList.remove("hidden");
 
-      document.querySelector('.newbackdrop').classList.remove("opacity-0");
+      // document.querySelector('.newbackdrop').classList.remove("opacity-0");
       document.querySelector('.newbackdrop').classList.add("opacity-100");
 
-      document.querySelector('.ofcmenu').classList.remove("-translate-x-full");
+      // document.querySelector('.ofcmenu').classList.remove("-translate-x-full");
       document.querySelector('.ofcmenu').classList.add("translate-x-0");
 
-      document.querySelector('.closebtn').classList.remove("opacity-0");
+      // document.querySelector('.closebtn').classList.remove("opacity-0");
       document.querySelector('.closebtn').classList.add("opacity-100");
    }
 </script>
