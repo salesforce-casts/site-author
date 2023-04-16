@@ -1,12 +1,10 @@
-<div class="border-gray-750 fixed top-0 left-0 z-30 h-full w-10 border-r bg-gray-900">
+<div class="border-gray-750 fixed left-0 top-0 z-30 h-full w-10 border-r bg-gray-900">
    <div class="mt-12"></div>
    <div class="text-white" onclick="toggleOffCanvas()">hey</div>
-   <div class="text-white">
-      <button onclick="toggleOffCanvas()">Click</button>
-   </div>
+   <div class="text-white">am</div>
    <div class="text-white">there</div>
    <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-   <div class="relative z-50 hidden backdrop" role="dialog" aria-modal="true">
+   <div class="relative z-50 " role="dialog" aria-modal="true">
       <!--
          Off-canvas menu backdrop, show/hide based on off-canvas menu state.
          
@@ -17,7 +15,7 @@
            From: "opacity-100"
            To: "opacity-0"
          -->
-      <div class="fixed inset-0 bg-gray-900/80 transition-opacity ease-linear duration-300 opacity-0 newbackdrop"></div>
+      <div class="newbackdrop fixed inset-0 bg-gray-900/80 opacity-0 transition-opacity duration-300 ease-linear"></div>
       <div class="fixed inset-0 flex">
          <!--
             Off-canvas menu, show/hide based on off-canvas menu state.
@@ -29,7 +27,7 @@
               From: "translate-x-0"
               To: "-translate-x-full"
             -->
-         <div class="relative mr-16 flex w-full max-w-xs flex-1 transition ease-in-out duration-300 transform -translate-x-full ofcmenu">
+         <div class="ofcmenu relative mr-16 flex w-full max-w-xs flex-1 -translate-x-full transform transition duration-300 ease-in-out">
             <!--
                Close button, show/hide based on off-canvas menu state.
                
@@ -40,158 +38,25 @@
                  From: "opacity-100"
                  To: "opacity-0"
                -->
-            <div class="absolute left-full top-0 flex w-16 justify-center pt-5 ease-in-out duration-300 opacity-0 closebtn">
+            <div class="closebtn absolute left-full top-0 flex w-16 justify-center pt-5 opacity-0 duration-300 ease-in-out">
                <button type="button" class="-m-2.5 p-2.5">
                   <span class="sr-only">Close sidebar</span>
-                  <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                </button>
             </div>
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
-               <div class="flex h-16 shrink-0 items-center">
-                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
-               </div>
-               <nav class="flex flex-1 flex-col">
-                  <ul role="list" class="flex flex-1 flex-col gap-y-7">
-                     <li>
-                        <ul role="list" class="-mx-2 space-y-1">
-                           <li>
-                              <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" -->
-                              <a href="#" class="bg-gray-50 text-indigo-600 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                                 </svg>
-                                 Dashboard
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                 </svg>
-                                 Team
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
-                                 </svg>
-                                 Projects
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                                 </svg>
-                                 Calendar
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
-                                 </svg>
-                                 Documents
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                                 <svg class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
-                                 </svg>
-                                 Reports
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li>
-                        <div class="text-xs font-semibold leading-6 text-gray-400">Your teams</div>
-                        <ul role="list" class="-mx-2 mt-2 space-y-1">
-                           <li>
-                              <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" -->
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600">H</span>
-                              <span class="truncate">Heroicons</span>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600">T</span>
-                              <span class="truncate">Tailwind Labs</span>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600">W</span>
-                              <span class="truncate">Workcation</span>
-                              </a>
-                           </li>
-                        </ul>
-                     </li>
-                  </ul>
-               </nav>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-
-<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-   <!--
-      Background backdrop, show/hide based on modal state.
-      
-      Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-      -->
-   <div class="backdropp fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity ease-out duration-300 opacity-0"></div>
-   <div class="fixed inset-0 z-10 overflow-y-auto">
-      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-         <!--
-            Modal panel, show/hide based on modal state.
-            
-            Entering: "ease-out duration-300"
-              From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              To: "opacity-100 translate-y-0 sm:scale-100"
-            Leaving: "ease-in duration-200"
-              From: "opacity-100 translate-y-0 sm:scale-100"
-              To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            -->
-         <div class="newbackdropp relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 ease-out duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-            <div>
-               <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-               </div>
-               <div class="mt-3 text-center sm:mt-5">
-                  <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Payment successful</h3>
-                  <div class="mt-2">
-                     <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="mt-5 sm:mt-6">
-               <button type="button" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onclick="goback()">Go back to dashboard</button>
+               
             </div>
          </div>
       </div>
    </div>
 </div>
 <script>
-   function toggleOffCanvas(event){
-      console.log('---AM HERE---');
-       document.querySelector(".backdropp").classList.add("opacity-100");
-      document.querySelector(".newbackdropp").classList.add("opacity-100", "translate-y-0", "sm:scale-100");
+   function toggleOffCanvas(){
+      console.log('AM HERE');
       // document.querySelector('.backdrop').classList.remove("hidden");
    
       // // document.querySelector('.newbackdrop').classList.remove("opacity-0");
@@ -202,12 +67,5 @@
    
       // // document.querySelector('.closebtn').classList.remove("opacity-0");
       // document.querySelector('.closebtn').classList.add("opacity-100");
-   }
-
-   function goback(){
-      document.querySelector(".backdropp").classList.remove("opacity-100");
-      document.querySelector(".backdropp").classList.add("ease-in", "duration-200");
-      document.querySelector(".newbackdropp").classList.remove("opacity-100", "translate-y-0", "sm:scale-100");
-      document.querySelector(".newbackdropp").classList.add("ease-in", "duration-200");
    }
 </script>
