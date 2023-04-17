@@ -16,7 +16,7 @@
         @include('header')
             
         @include('left-sidebar')
-
+        
         @include('right-sidebar')
     
     </body>

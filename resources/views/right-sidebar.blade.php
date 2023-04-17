@@ -1,5 +1,5 @@
 <!-- Right Sidebar -->
-<div class="border-gray-750 absolute right-0 z-20 flex h-screen w-64 flex-shrink-0 select-none flex-col border-l bg-gray-800 text-white">
+<div class="border-gray-750 absolute right-0 z-100 flex h-screen w-64 flex-shrink-0 select-none flex-col border-l bg-gray-800 text-white">
     <div class="flex h-10 flex-shrink-0 items-center border-b border-gray-800 bg-gray-800">
         <div class="flex h-full w-full cursor-pointer items-center justify-center border-b border-transparent bg-gray-800 text-sm text-xs text-gray-100">Design</div>
 
