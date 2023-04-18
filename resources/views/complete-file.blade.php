@@ -24,7 +24,8 @@
                         <div>
                             <div class="w-full">
                                 <div dusk="tabs-add-headers"
-                                    class="self-start block w-full px-6 py-2 text-xs border-transparent cursor-pointer hover:opacity-100 hover:text-gray-300 hover:bg-gray-700 text-gray-300">
+                                    class="self-start block w-full px-6 py-2 text-xs border-transparent cursor-pointer hover:opacity-100 hover:text-gray-300 hover:bg-gray-700 text-gray-300"
+                                    onclick="tooglesubsub()">
                                     Headers
                                 </div>
                                 <div dusk="tabs-add-navigations"
@@ -55,24 +56,19 @@
                             </div>
                         </div>
 
-                        <div class="absolute top-0 left-0 z-20 flex flex-col h-full p-4 pl-8 overflow-x-visible overflow-y-scroll text-base font-bold transform bg-gray-700 w-[39rem] pt-6"
-                            id="component_drawer" x-show="app.component_drawer"
-                            x-transition:enter="transition-all duration-300 ease-out"
-                            x-transition:enter-start="-translate-x-12" x-transition:enter-end="translate-x-0"
-                            style="display: none;"></div>
+                        <div class="absolute top-0 left-0 z-20 flex flex-col h-full p-4 pl-8 overflow-x-visible overflow-y-scroll text-base font-bold transform bg-gray-700 w-[39rem] pt-6 transition-all duration-300 ease-out -translate-x-12"
+                            id="component_drawer" x-show="app.component_drawer" style="display: none;"></div>
+                        {{-- entering from : -translate-x-12 --}}
+                        {{-- entering to: translate-x-0 --}}
 
                         {{-- 1 --}}
                         <div x-show="app.section == 'Headers'"
                             class="absolute top-0 left-0 z-30 flex flex-col h-full p-3 pb-10 overflow-x-visible overflow-y-scroll text-base font-bold text-gray-700 transform pl-14 w-[39rem] pt-6"
                             style="display: none;">
                             <div id="headers-slide"
-                                :class="{
-                                    'opacity-100 translate-x-0': app.section ==
-                                        'Headers',
-                                    'opacity-50 -translate-x-12': app.section != 'Headers'
-                                }"
                                 class="absolute z-20 flex flex-col h-auto pb-16 pr-6 ml-40 text-base font-bold text-gray-700 transform rounded-lg w-104 transition-all duration-200 ease-out opacity-50 -translate-x-12"
                                 style="display: none;">
+                                {{-- to: opacity-100 translate-x-0 --}}
                                 <div dusk="section-header-01" draggable="true" id="section-header-01" <!-- absolute item
                                     below to force draggable true -->
                                     <div
@@ -173,7 +169,14 @@
     function callbackCustom() {
         console.log('AM HERE');
         document.querySelector('.backdrop').classList.add("translate-x-0");
-        document.querySelectorAll('.headers')[0].classList.remove("hidden");
-        document.querySelectorAll('.headers')[1].classList.remove("hidden");
+    }
+
+    function tooglesubsub() {
+        console.log('AM HERE');
+        document.querySelector('#component_drawer').style.removeProperty('display');
+        document.querySelector('#component_drawer').classList.add("translate-x-0");
+        document.querySelector('#headers-slide').style.removeProperty('display');
+        document.querySelector('#headers-slide').classList.add("opacity-100", "translate-x-0");
+        // document.querySelectorAll('.headers').classList.add("hidden");
     }
 </script>
